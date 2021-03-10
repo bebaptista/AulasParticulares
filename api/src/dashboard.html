@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: "Raleway", sans-serif
+    }
+</style>
+
+<body class="w3-light-grey">
+
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
+            onclick="w3_open();"><i class="fa fa-bars"></i> Menu</button>
+        <span class="w3-bar-item w3-right">Logo</span>
+    </div>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+        title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-top:43px;">
+
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+        </header>
+
+        <div class="w3-row-padding w3-margin-bottom">
+            <h2>Indicadores de Desempenho</h2>
+            <div class="w3-quarter">
+              <div class="w3-container w3-red w3-padding-16">
+                <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                  <h2 id = reclamacoes></h2>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Percentual de Reclamações</h4>
+              </div>
+              <button class="w3-button w3-dark-grey" onclick="requisitarReclamacoes();">Buscar <i
+                class="fa fa-arrow-right"></i></button>
+            </div>
+            <div class="w3-quarter">
+              <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                  <h2 id = confirmacoes></h2>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Percentual de Confirmações</h4>
+              </div>
+              <button class="w3-button w3-dark-grey" onclick="requisitarConfirmacoes();">Buscar <i
+                class="fa fa-arrow-right"></i></button>
+            </div>
+            <div class="w3-quarter">
+              <div class="w3-container w3-teal w3-padding-16">
+                <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                  <h2 id = txalunoprofessor></h2>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Taxa de Alunos por Professor</h4>
+              </div>
+              <button class="w3-button w3-dark-grey" onclick="requisitarTaxaAlunoProfessor();">Buscar <i
+                class="fa fa-arrow-right"></i></button>
+            </div>
+            <div class="w3-quarter">
+              <div class="w3-container w3-orange w3-text-black w3-padding-16">
+                <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                  <h2 id = ativos></h2>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Número de Usuários Ativos</h4>
+              </div>
+              <button class="w3-button w3-dark-grey" onclick="requisitarUsuariosAtivos();">Buscar <i
+                class="fa fa-arrow-right"></i></button>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-container w3-purple w3-text-white w3-padding-16">
+                  <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+                  <div class="w3-right">
+                    <h3 id = fisica></h3>
+                    <h3 id = filosofia></h3>
+                    <h3 id = quimica></h3>
+                    <h3 id = biologia></h3>
+                    <h3 id = historia></h3>
+                    <h3 id = espanhol></h3>
+                    <h3 id = artes></h3>
+                    <h3 id = ciencias></h3>
+                    <h3 id = geografia></h3>
+                    <h3 id = matematica></h3>
+                    <h3 id = literatura></h3>
+                    <h3 id = ingles></h3>
+                    <h3 id = redacao></h3>
+                    <h3 id = portugues></h3>
+                    <h3 id = sociologia></h3>
+                  </div>
+                  <div class="w3-clear"></div>
+                  <h4>Professores por matéria</h4>
+                </div>
+                <button class="w3-button w3-dark-grey" onclick="requisitarTaxaProfessorMateria();">Buscar <i
+                  class="fa fa-arrow-right"></i></button>
+              </div>
+            
+          </div>
+
+        <!-- <hr>
+        <div class="w3-container">
+            <p>Percentual de reclamações</p>
+            <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-green" style="width:0%" id="reclamacao"></div>
+            </div>
+            <button class="w3-button w3-dark-grey" onclick="requisitarReclamacoes();">Buscar <i
+                    class="fa fa-arrow-right"></i></button>
+
+            <p>Percentual de usuários ativos</p>
+            <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-orange" style="width:0%" id="ativos">50%</div>
+            </div>
+            <button class="w3-button w3-dark-grey" onclick="requisitarUsuariosAtivos();">Buscar <i
+                    class="fa fa-arrow-right"></i></button>
+
+            <p>Percentual de confirmações das aulas</p>
+            <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-red" style="width:0%" id="confirmacao">75%</div>
+            </div>
+            <button class="w3-button w3-dark-grey" onclick="requisitarConfirmacoes();">Buscar <i
+                    class="fa fa-arrow-right"></i></button>
+
+            <p>Taxa de alunos por professores</p>
+            <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-blue" style="width:0%" id="txalunoprofessor">75%</div>
+            </div>
+            <button class="w3-button w3-dark-grey" onclick="requisitarTaxaProfessorAluno();">Buscar <i
+                    class="fa fa-arrow-right"></i></button>
+
+            <p>Taxa de professores para cada matéria</p>
+            <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-purple" style="width:0%" id="txprofessormateria">75%</div>
+            </div>
+            <button class="w3-button w3-dark-grey" onclick="requisitarTaxaProfessorMateria();">Buscar <i
+                    class="fa fa-arrow-right"></i></button>
+        </div>
+        <hr> -->
+
+        <!-- Footer -->
+        <footer class="w3-container w3-padding-16 w3-light-grey">
+            <h4>FOOTER</h4>
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+
+        <!-- End page content -->
+    </div>
+
+    <script>
+        // Get the Sidebar
+        const mySidebar = document.getElementById("mySidebar");
+
+        // Get the DIV with overlay effect
+        const overlayBg = document.getElementById("myOverlay");
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
+            }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
+
+        function requisitarReclamacoes() {
+
+            const url = "https://aula-particular.herokuapp.com/api/dashboard/reclamacoes";
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+
+            xhr.onreadystatechange = function () {//Função a ser chamada quando a requisição retornar do servidor
+                if (xhr.readyState == 4 && xhr.status == 200) {//Verifica se o retorno do servidor deu certo
+                    const resposta = JSON.parse(xhr.responseText);
+                    document.getElementById("reclamacoes").innerHTML = resposta[0].reclamacoes+"%";
+                }
+            }
+
+            xhr.send();//A execução do script pára aqui até a requisição retornar do servidor
+        }
+
+        function requisitarUsuariosAtivos() {
+
+            const url = "https://aula-particular.herokuapp.com/api/dashboard/usuarios";
+            
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+
+            xhr.onreadystatechange = function () {//Função a ser chamada quando a requisição retornar do servidor
+                if (xhr.readyState == 4 && xhr.status == 200) {//Verifica se o retorno do servidor deu certo
+                    const resposta = JSON.parse(xhr.responseText);
+                    document.getElementById("ativos").innerHTML = resposta[0].usuarios;
+                }
+            }
+
+            xhr.send();//A execução do script pára aqui até a requisição retornar do servidor
+            
+            
+        }
+
+        function requisitarConfirmacoes() {
+
+            const url = "https://aula-particular.herokuapp.com/api/dashboard/confirmacoes";
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+
+            xhr.onreadystatechange = function () {//Função a ser chamada quando a requisição retornar do servidor
+                if (xhr.readyState == 4 && xhr.status == 200) {//Verifica se o retorno do servidor deu certo
+                    const resposta = JSON.parse(xhr.responseText);
+                    document.getElementById("confirmacoes").innerHTML = resposta[0].confirmacoes+"%";
+                }
+            }
+
+            xhr.send();//A execução do script pára aqui até a requisição retornar do servidor
+        }
+
+        function requisitarTaxaAlunoProfessor() {
+
+            const url = "https://aula-particular.herokuapp.com/api/dashboard/taxaprofessoraluno";
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function () {//Função a ser chamada quando a requisição retornar do servidor
+                if (xhr.readyState == 4 && xhr.status == 200) {//Verifica se o retorno do servidor deu certo
+                    const resposta = JSON.parse(xhr.responseText);
+                    document.getElementById('txalunoprofessor').innerHTML = resposta[0].taxaalunoprofessor;
+                }
+            }
+            xhr.send();//A execução do script pára aqui até a requisição retornar do servidor
+        }
+
+        function requisitarTaxaProfessorMateria() {
+
+            const url = "https://aula-particular.herokuapp.com/api/dashboard/taxaprofessormateria";
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+
+            xhr.onreadystatechange = function () {//Função a ser chamada quando a requisição retornar do servidor
+                if (xhr.readyState == 4 && xhr.status == 200) {//Verifica se o retorno do servidor deu certo
+                    const resposta = JSON.parse(xhr.responseText);
+                    console.log(resposta);
+                    document.getElementById('fisica').innerHTML = resposta[0].count+" Física";
+                    document.getElementById('filosofia').innerHTML = resposta[1].count+" Filosofia";
+                    document.getElementById('quimica').innerHTML = resposta[2].count+" Química";
+                    document.getElementById('biologia').innerHTML = resposta[3].count+" Biologia";
+                    document.getElementById('historia').innerHTML = resposta[4].count+" História";
+                    document.getElementById('espanhol').innerHTML = resposta[5].count+" Espanhol";
+                    document.getElementById('artes').innerHTML = resposta[6].count+" Artes";
+                    document.getElementById('ciencias').innerHTML = resposta[7].count+" Ciências";
+                    document.getElementById('geografia').innerHTML = resposta[8].count+" Geografia";
+                    document.getElementById('matematica').innerHTML = resposta[9].count+" Matemática";
+                    document.getElementById('literatura').innerHTML = resposta[10].count+" Literatura";
+                    document.getElementById('ingles').innerHTML = resposta[11].count+" Inglês";
+                    document.getElementById('redacao').innerHTML = resposta[12].count+" Redação";
+                    document.getElementById('portugues').innerHTML = resposta[13].count+" Português";
+                    document.getElementById('sociologia').innerHTML = resposta[14].count+" Sociologia";
+                }
+            }
+
+            xhr.send();//A execução do script pára aqui até a requisição retornar do servidor
+        }
+    </script>
+
+</body>
+
+</html>
